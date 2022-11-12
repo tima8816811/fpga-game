@@ -94,31 +94,31 @@ always @ (posedge clk)
 				
 			else if (ysync_i >= 135 && ysync_i < 138)
 				begin 
-					if (xsync_i < 324)
+					if (xsync_i < 355)
 						begin 
 							r_r <= 4'h0;    
 							b_r <= 4'h0;
 							g_r <= 4'h0;
 						end  
-					else if (xsync_i >= 324 && xsync_i < 350)
+					else if (xsync_i >= 355 && xsync_i < 381)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end
-					else if (xsync_i >= 370 && xsync_i < 396)
+					else if (xsync_i >= 401 && xsync_i < 427)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 	
-					else if (xsync_i >= 416 && xsync_i < 442)
+					else if (xsync_i >= 447 && xsync_i < 473)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 
-					else if (xsync_i >= 462 && xsync_i < 488)
+					else if (xsync_i >= 493 && xsync_i < 519)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
@@ -131,45 +131,46 @@ always @ (posedge clk)
 							g_r <= 4'h0;
 						end	
 					end  
+					
 		      else if (ysync_i >= 138 && ysync_i < 152)
 				begin 
-					if (xsync_i < 324)
+					if (xsync_i < 355)
 						begin 
 							r_r <= 4'h0;    
 							b_r <= 4'h0;
 							g_r <= 4'h0;
 						end  
-					else if (xsync_i >= 324 && xsync_i < 327)
+					else if (xsync_i >= 355 && xsync_i < 358)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 
-					else if (xsync_i >= 370 && xsync_i < 373)
+					else if (xsync_i >= 401 && xsync_i < 504)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end		
-				    else if (xsync_i >= 393 && xsync_i < 396)
+				    else if (xsync_i >= 424 && xsync_i < 427)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 
-					else if (xsync_i >= 416 && xsync_i < 419)
+					else if (xsync_i >= 447 && xsync_i < 450)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end	 
-					else if (xsync_i >= 462 && xsync_i < 465)
+					else if (xsync_i >= 493 && xsync_i < 496)
 						begin 
 							r_r <= 4'hf;  
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 	
-					else if (xsync_i >= 485 && xsync_i < 488)
+					else if (xsync_i >= 516 && xsync_i < 519)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
@@ -185,37 +186,37 @@ always @ (posedge clk)
 					
 			 else if (ysync_i >= 152 && ysync_i < 155)
 				begin 
-					if (xsync_i < 324)
+					if (xsync_i < 355)
 						begin 
 							r_r <= 4'h0;    
 							b_r <= 4'h0;
 							g_r <= 4'h0;
 						end  
-					else if (xsync_i >= 324 && xsync_i < 350)
+					else if (xsync_i >= 355 && xsync_i < 381)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end
-					else if (xsync_i >= 370 && xsync_i < 396)
+					else if (xsync_i >= 401 && xsync_i < 427)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end
-					else if (xsync_i >= 416 && xsync_i < 419)
+					else if (xsync_i >= 447 && xsync_i < 450)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end
-					else if (xsync_i >= 429 && xsync_i < 442)
+					else if (xsync_i >= 461 && xsync_i < 473)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end	
-					else if (xsync_i >= 462 && xsync_i < 488)
+					else if (xsync_i >= 493 && xsync_i < 519)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
@@ -231,43 +232,43 @@ always @ (posedge clk)
 			  
 			  else if (ysync_i >= 155 && ysync_i < 180)
 				begin 
-					if (xsync_i < 324)
+					if (xsync_i < 355)
 						begin 
 							r_r <= 4'h0;    
 							b_r <= 4'h0;
 							g_r <= 4'h0;
 						end  
-					else if (xsync_i >= 324 && xsync_i < 327)
+					else if (xsync_i >= 355 && xsync_i < 358)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 
-					else if (xsync_i >= 370 && xsync_i < 373)
+					else if (xsync_i >= 401 && xsync_i < 404)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end	
-					else if (xsync_i >= 416 && xsync_i < 419)
+					else if (xsync_i >= 447 && xsync_i < 450)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 
-					else if (xsync_i >= 439 && xsync_i < 442)
+					else if (xsync_i >= 470 && xsync_i < 473)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 
-					else if (xsync_i >= 462 && xsync_i < 465)
+					else if (xsync_i >= 493 && xsync_i < 496)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 	
-					else if (xsync_i >= 485 && xsync_i < 488)
+					else if (xsync_i >= 516 && xsync_i < 519)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
@@ -282,7 +283,7 @@ always @ (posedge clk)
 					end
 				else if (ysync_i >= 180 && ysync_i < 183)
 				    begin
-				        if(xsync_i >= 416 && xsync_i < 442)
+				        if(xsync_i >= 447 && xsync_i < 473)
 				            begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
@@ -298,31 +299,31 @@ always @ (posedge clk)
 					
 			     else if (ysync_i >= 360 && ysync_i < 363)
 				begin 
-					if (xsync_i < 324)
+					if (xsync_i < 355)
 						begin 
 							r_r <= 4'h0;    
 							b_r <= 4'h0;
 							g_r <= 4'h0;
 						end  
-					else if (xsync_i >= 324 && xsync_i < 350)
+					else if (xsync_i >= 355 && xsync_i < 381)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end
-					else if (xsync_i >= 370 && xsync_i < 396)
+					else if (xsync_i >= 401 && xsync_i < 427)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 	
-					else if (xsync_i >= 416 && xsync_i < 442)
+					else if (xsync_i >= 447 && xsync_i < 473)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 
-					else if (xsync_i >= 462 && xsync_i < 488)
+					else if (xsync_i >= 493 && xsync_i < 519)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
@@ -337,49 +338,49 @@ always @ (posedge clk)
 					end  
 		      else if (ysync_i >= 363 && ysync_i < 377)
 				begin 
-					if (xsync_i < 324)
+					if (xsync_i < 355)
 						begin 
 							r_r <= 4'h0;    
 							b_r <= 4'h0;
 							g_r <= 4'h0;
 						end  
-					else if (xsync_i >= 324 && xsync_i < 327)
+					else if (xsync_i >= 355 && xsync_i < 358)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 
-					else if (xsync_i >= 370 && xsync_i < 373)
+					else if (xsync_i >= 401 && xsync_i < 404)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end		
-				    else if (xsync_i >= 393 && xsync_i < 396)
+				    else if (xsync_i >= 424 && xsync_i < 427)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 
-					else if (xsync_i >= 416 && xsync_i < 419)
+					else if (xsync_i >= 447 && xsync_i < 450)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end	 
-					else if (xsync_i >= 428 && xsync_i < 431)
+					else if (xsync_i >= 459 && xsync_i < 462)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end	
-					else if (xsync_i >= 439 && xsync_i < 442)
+					else if (xsync_i >= 470 && xsync_i < 473)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end		
-					else if (xsync_i >= 462 && xsync_i < 465)
+					else if (xsync_i >= 493 && xsync_i < 496)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
@@ -395,49 +396,49 @@ always @ (posedge clk)
 					
 			 else if (ysync_i >= 377 && ysync_i < 380)
 				begin 
-					if (xsync_i < 324)
+					if (xsync_i < 355)
 						begin 
 							r_r <= 4'h0;    
 							b_r <= 4'h0;
 							g_r <= 4'h0;
 						end  
-					else if (xsync_i >= 324 && xsync_i < 327)
+					else if (xsync_i >= 355 && xsync_i < 358)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end
-					else if (xsync_i >= 337 && xsync_i < 350)
+					else if (xsync_i >= 368 && xsync_i < 381)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end	
-					else if (xsync_i >= 370 && xsync_i < 396)
+					else if (xsync_i >= 401 && xsync_i < 427)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end
-					else if (xsync_i >= 416 && xsync_i < 419)
+					else if (xsync_i >= 447 && xsync_i < 450)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end
-					else if (xsync_i >= 428 && xsync_i < 431)
+					else if (xsync_i >= 459 && xsync_i < 462)
 						begin 
 							r_r <= 4'h0;   
 							b_r <= 4'h0;
 							g_r <= 4'h0;
 						end	
-					else if (xsync_i >= 439 && xsync_i < 442)
+					else if (xsync_i >= 470 && xsync_i < 473)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end	
-					else if (xsync_i >= 462 && xsync_i < 488)
+					else if (xsync_i >= 493 && xsync_i < 519)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
@@ -453,55 +454,55 @@ always @ (posedge clk)
 			  
 			  else if (ysync_i >= 380 && ysync_i < 405)
 				begin 
-					if (xsync_i < 324)
+					if (xsync_i < 355)
 						begin 
 							r_r <= 4'h0;    
 							b_r <= 4'h0;
 							g_r <= 4'h0;
 						end  
-					else if (xsync_i >= 324 && xsync_i < 327)
+					else if (xsync_i >= 355 && xsync_i < 358)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 
-					else if (xsync_i >= 347 && xsync_i < 350)
+					else if (xsync_i >= 378 && xsync_i < 381)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 	
-					else if (xsync_i >= 370 && xsync_i < 373)
+					else if (xsync_i >= 401 && xsync_i < 404)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end	
-					else if (xsync_i >= 393 && xsync_i < 396)
+					else if (xsync_i >= 424 && xsync_i < 427)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end		
-					else if (xsync_i >= 416 && xsync_i < 419)
+					else if (xsync_i >= 447 && xsync_i < 450)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end
-					else if (xsync_i >= 428 && xsync_i < 431)
+					else if (xsync_i >= 459 && xsync_i < 462)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end	
-					else if (xsync_i >= 439 && xsync_i < 442)
+					else if (xsync_i >= 470 && xsync_i < 473)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end				
-					else if (xsync_i >= 462 && xsync_i < 465)
+					else if (xsync_i >= 493 && xsync_i < 496)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
@@ -517,13 +518,13 @@ always @ (posedge clk)
 					
 				else if (ysync_i >= 405 && ysync_i < 408)
 				    begin
-				        if(xsync_i >= 324 && xsync_i < 350)
+				        if(xsync_i >= 355 && xsync_i < 383)
 				            begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 
-						else if(xsync_i >= 462 && xsync_i < 488)
+						else if(xsync_i >= 493 && xsync_i < 519)
 				            begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
