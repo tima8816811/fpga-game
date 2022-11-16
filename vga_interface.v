@@ -146,7 +146,7 @@ always @ (posedge clk)
 							b_r <= 4'hf;
 							g_r <= 4'hf;
 						end 
-					else if (xsync_i >= 401 && xsync_i < 504)
+					else if (xsync_i >= 401 && xsync_i < 404)
 						begin 
 							r_r <= 4'hf;   
 							b_r <= 4'hf;
