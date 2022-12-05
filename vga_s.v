@@ -74,7 +74,7 @@ module vga_s(
 					color_out = 12'b0000_0000_0000;
 				else if(snake == WALL)
 					color_out = 3'b101;
-				else if(snake == HEAD|snake == BODY) begin   //根據當前掃描到的點是哪一部分輸出相應顏色
+				else if(snake == HEAD|snake == BODY) begin   
 					case({lox,loy})
 						8'b0000_0000:color_out = 12'b0000_0000_0000;
 						default:color_out = (snake == HEAD) ?  HEAD_COLOR : BODY_COLOR;
