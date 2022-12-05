@@ -26,16 +26,16 @@ module snake
 	input clr,
 	input L,R,U,D,
 	input [9:0]x_pos,
-	input [9:0]y_pos, //±½´y§¤¼Ð  ³æ¦ì¡G"¹³¯ÀÂI""	
-	input add_cube,//¼W¥[Åéªø«H¸¹
+	input [9:0]y_pos, 	
+	input add_cube,
 	input s_start,s_play,s_die,
 
-	output reg [1:0]snake,//¥Î©óªí¥Ü·í«e±½´y±½´yªº³¡¥ó ¥|ºØª¬ºA 00¡GµL 01¡GÀY 10¡G¨­Åé 11¡G	
+	output reg [1:0]snake,
 	output [5:0]head_x,	
-	output [5:0]head_y,//ÀY³¡®æ§¤¼Ð	
+	output [5:0]head_y,	
 	output reg [6:0]cube_num,
-	output reg hit_body,  //¼²¨ì¨­¤l«H¸¹
-	output reg hit_wall   //¼²¨ìÀð«H¸¹
+	output reg hit_body, 
+	output reg hit_wall   
 );
 	
 	localparam UP = 2'b00;
@@ -54,8 +54,8 @@ module snake
 	reg[31:0]cnt;
 	
 	wire[1:0]direct;
-	reg [1:0]direct_r;     //±H¦s¤è¦V
-	assign direct = direct_r;//±H¦s¤U¤@­Ó¤è¦V
+	reg [1:0]direct_r;     
+	assign direct = direct_r;
 	reg[1:0]direct_next;
 	
 	reg change_to_left;
@@ -64,8 +64,8 @@ module snake
 	reg change_to_down;
 	
 	reg [5:0]cube_x[15:0];
-	reg [5:0]cube_y[15:0];//Åéªø§¤¼Ð ³æ¦ì¡G"®æ¤l"
-    reg [15:0]is_exist;    //¥Î©ó±±¨î¨­¤lªº«G·À¡A§Y±±¨î¨­¤lªø«×
+	reg [5:0]cube_y[15:0];
+    reg [15:0]is_exist;    
 	
 	reg addcube_state;
 	
@@ -74,7 +74,7 @@ module snake
 	
 	always @(posedge clk or posedge clr) begin		
 		if(clr)
-			direct_r <= RIGHT; //Àq»{¤@¥X¨Ó¦V¥k²¾°Ê
+			direct_r <= RIGHT; 
 		else
 			direct_r <= direct_next;
 	end
@@ -133,15 +133,15 @@ module snake
 			cube_y[15] <= 0;
 
 			hit_wall <= 0;
-			hit_body <= 0;//ªì©lªø«×3  ­­ªø16 ªì©l¤Æ®É¥uÅã¥Ü3­Óªø«×-
+			hit_body <= 0;//åˆå§‹é•·åº¦3 é™é•·16 
 		end		
 		else begin
 			cnt <= cnt + 1;
-			if(cnt == 12500000) begin  //0.02us*12'500'000=0.25s   ¨C¬í²¾°Ê¥|¦¸
+			if(cnt == 12500000) begin  //0.02us*12'500'000=0.25s  
 				cnt <= 0;
 				if(s_play==1) begin
 					if((direct == UP && cube_y[0] == 1)|(direct == DOWN && cube_y[0] == 28)|(direct == LEFT && cube_x[0] == 1)|(direct == RIGHT && cube_x[0] == 38))//
-					   hit_wall <= 1; //¼²¨ìÀð¾À
+					   hit_wall <= 1; 
 					else if((cube_y[0] == cube_y[1] && cube_x[0] == cube_x[1] && is_exist[1] == 1)|
 							(cube_y[0] == cube_y[2] && cube_x[0] == cube_x[2] && is_exist[2] == 1)|
 							(cube_y[0] == cube_y[3] && cube_x[0] == cube_x[3] && is_exist[3] == 1)|
@@ -157,7 +157,7 @@ module snake
 							(cube_y[0] == cube_y[13] && cube_x[0] == cube_x[13] && is_exist[13] == 1)|
 							(cube_y[0] == cube_y[14] && cube_x[0] == cube_x[14] && is_exist[14] == 1)|
 							(cube_y[0] == cube_y[15] && cube_x[0] == cube_x[15] && is_exist[15] == 1))
-							hit_body <= 1;//ÀYªºY§¤¼Ð=¥ô¤@¦ì¨­ÅéªºY§¤¼Ð ¥B ÀYªºX§¤¼Ð=¥ô¤@¦ì¨­ÅéªºX§¤¼Ð ¥B ¨­Åéªº¸Óªø«×¦ì¦s¦b  ¸I¨ì¨­Åé
+							hit_body <= 1;
 					else begin
 						cube_x[1] <= cube_x[0];
 						cube_y[1] <= cube_y[0];
@@ -203,8 +203,8 @@ module snake
 										
 						cube_x[15] <= cube_x[14];
 						cube_y[15] <= cube_y[14];
-						//¨­Åé¹B°Êºâªk ¥»ªø«×¦ì²¾°Êªº¤U­Ó§¤¼Ð¬°¤U¤@­Óªø«×¦ì·í«e§¤¼Ð ¹B°Ê¸`©ç«ö¤ÀÀW«áªº¸`«µ
-						case(direct)		//					
+						
+						case(direct)						
 							UP: begin
 							    if(cube_y[0] == 1)
 									hit_wall <= 1;
@@ -232,17 +232,17 @@ module snake
                                 else
 									cube_x[0] <= cube_x[0] + 1;
 							end
-						endcase				//®Ú¾Ú«ö¤U«öÁä§PÂ_¬O§_¼²Àð §_«h«ö³W«ß§ïÅÜÀY³¡§¤¼Ð
+						endcase				
 					end
 				end
 			end
 		end
 	end
 	
-	always @(*) begin   //®Ú¾Ú·í«e¹B°Êª¬ºA§Y«ö¤UÁä¦ì§PÂ_¤U¤@¨B¹B°Ê±¡ªp
+	always @(*) begin   
 		direct_next = direct;		
         case(direct)	
-		    UP: begin   //®Ú¾Ú«öÁä¶i¦æ¤T­Ó¤è¦Vªº¿ï¾Ü¡A³o¸Ì¬O«öÁä«ö¤Uªº®É­Ô¡A«H¸¹¶Ç¾ÉDirect_next¡AµM«á¥ÑDirect_next°eµ¹Direct_r¡A³Ì«á¦A½á­Èµ¹Direct
+		    UP: begin  
 			    if(change_to_left)
 				    direct_next = LEFT;
 			    else if(change_to_right)
@@ -280,7 +280,7 @@ module snake
 	    endcase
 	end
 	
-	always @(posedge clk) begin     //µ¹¥|­Ó«öÁä½á­È
+	always @(posedge clk) begin
 		if(L == 1)
 			change_to_left <= 1;
 		else if(R == 1)
@@ -297,21 +297,20 @@ module snake
 		end
 	end
 	
-	always @(posedge clk or posedge clr) begin
-//¦Y¤UÄ«ªG¨S¡H ¡A¦Y¤U«hadd_cube==1¡AÅã¥ÜÅéªø¼W¥[¤@¦ì¡A"is_exixt[cube_num]<=1",Åý²Äcube_num¦ì"¥X²{"	
+	always @(posedge clk or posedge clr) begin	
 		if(clr) begin
 			is_exist <= 16'd7;
 			cube_num <= 3;
-			addcube_state <= 0; //ªì©lÅã¥Üªø«×¬°3¡Ais_exist=0000_0000_0111,ªí¥Ü«e¤T¦ì¥X²{
+			addcube_state <= 0;
 		end  
 		else begin			
-			case(addcube_state) //§PÂ_³DÀY»PÄ«ªG§¤¼Ð¬O§_­«¦X
+			case(addcube_state)
 				0:begin
 					if(add_cube) begin
 						cube_num <= cube_num + 1;
 						is_exist[cube_num] <= 1;
 						addcube_state <= 1;
-					end						//"¦Y¤U"«H¸¹
+					end					
 				end
 				1:begin
 					if(!add_cube)
@@ -327,9 +326,9 @@ module snake
 	always @(x_pos or y_pos ) begin				
 		if(x_pos >= 0 && x_pos < 640 && y_pos >= 0 && y_pos < 480) begin
 			if(x_pos[9:4] == 0 | y_pos[9:4] == 0 | x_pos[9:4] == 39 | y_pos[9:4] == 29)
-				snake = WALL;//±½´yÀð
+				snake = WALL;
 			else if(x_pos[9:4] == cube_x[0] && y_pos[9:4] == cube_y[0] && is_exist[0] == 1) 
-				snake =  HEAD;//±½´yÀY
+				snake =  HEAD;
 			else if
 				((x_pos[9:4] == cube_x[1] && y_pos[9:4] == cube_y[1] && is_exist[1] == 1)|
 				 (x_pos[9:4] == cube_x[2] && y_pos[9:4] == cube_y[2] && is_exist[2] == 1)|
@@ -346,7 +345,7 @@ module snake
 				 (x_pos[9:4] == cube_x[13] && y_pos[9:4] == cube_y[13] && is_exist[13] == 1)|
 				 (x_pos[9:4] == cube_x[14] && y_pos[9:4] == cube_y[14] && is_exist[14] == 1)|
 				 (x_pos[9:4] == cube_x[15] && y_pos[9:4] == cube_y[15] && is_exist[15] == 1))
-				 snake = BODY ;//±½´y¨­Åé
+				 snake = BODY ;
 			else snake = NONE;
 		end
 	end
