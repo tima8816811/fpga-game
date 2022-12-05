@@ -35,8 +35,7 @@ module apple(
 	reg [10:0]random_num;
 	
 	always@(posedge clk)
-		random_num <= random_num + 999;  //用加法產生隨機數
-	//隨機數高5位為食物X坐標 低5位為蘋果Y坐標
+		random_num <= random_num + 999;  
 	always@(posedge clk or posedge clr) begin
 		if(clr) begin
 			clk_cnt <= 0;
@@ -52,7 +51,7 @@ module apple(
 					add_cube <= 1;
 					apple_x <= (random_num[10:5] > 36) ? (random_num[10:5] - 25) : (random_num[10:5] == 0) ? 1 : random_num[10:5];
 					apple_y <= (random_num[4:0] > 28) ? (random_num[4:0] - 3) : (random_num[4:0] == 0) ? 1:random_num[4:0];
-				end   //判斷隨機數是否超出頻幕坐標範圍 將隨機數轉換為下個蘋果的X Y坐標
+				end   
 				else
 					add_cube <= 0;
 			end
