@@ -21,24 +21,48 @@
 
 
 module db(
-input clk,
+    input clk,
 	input clr,
-	input left,
-	input right,
-	input up,
-	input down,
+    input [15:0] xkey,
 	
 	output reg L,
 	output reg R,
 	output reg U,
 	output reg D
 );
-
+ 
 	reg [31:0]clk_cnt;
-	reg L_last;
-	reg R_last;
-	reg U_last;
-	reg D_last;
+	reg L_last,left;
+	reg R_last,right;
+	reg U_last,up;
+	reg D_last,down;
+	
+	always@(posedge clk or posedge clr) begin
+	   if (clr) begin
+	       left <=0;
+	       right <=0;
+	       up <=0;
+	       down <=0;
+	   end
+	   else if ((xkey[7:0])==8'b0001_1100)begin
+	       left <= 1;
+	       end
+	   else if ((xkey[7:0])==8'b0010_0011)begin
+	       right <= 1;
+	       end
+	   else if ((xkey[7:0])==8'b0001_1101)begin
+	       up <= 1;
+	       end
+	   else if ((xkey[7:0])==8'b0001_1011)begin
+	       down <= 1;
+	       end
+	   else begin
+	       left <=0;
+	       right <=0;
+	       up <=0;
+	       down <=0;     
+	       end    
+	end
 	
 	always@(posedge clk or posedge clr) begin
 		if(clr) begin
@@ -54,7 +78,7 @@ input clk,
 			R_last <= 0;					
 		end	
 		else begin
-			if(clk_cnt == 5_) begin //5_000000
+			if(clk_cnt ==187500) begin //5_000000
 				clk_cnt <= 0;
 				L_last <= left;
 				R_last <= right;
