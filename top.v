@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module top(
-input clk,clr,up,right,down,left,
+input clk,clr,PS2D,PS2C,
 output hsync,vsync,
 output [3:0] r,g,b
 );
@@ -48,17 +48,21 @@ wire hsync_s,vsync_s;
 wire [3:0] r_s,g_s,b_s;
 wire hit_wall,hit_body;
 
-db u1 (
+wire hsync_win,vsync_win;
+wire [3:0] r_win,g_win,b_win;
+
+wire hsync_lose,vsync_lose;
+wire [3:0] r_lose,g_lose,b_lose;
+
+keyboard_top u1 (
 .clk(clk),
 .clr(clr),
-.up(up),
-.down(down),
-.left(left),
-.right(right),
+.PS2D(PS2D),
+.PS2C(PS2C),
 .L(L),
-.U(U),
 .R(R),
-.D(D)
+.D(D),
+.U(U)	
 );
 
 control c1(
@@ -195,7 +199,17 @@ mux_vga m1(
 .hsync(hsync),
 .r(r),
 .g(g),
-.b(b)
+.b(b),
+.hsync_lose(hsync_lose),
+.vsync_lose(vsync_lose),
+.r_lose(r_lose),
+.g_lose(g_lose),
+.b_lose(b_lose),
+.hsync_win(hsync_win),
+.vsync_win(vsync_win),
+.r_win(r_win),
+.g_win(g_win),
+.b_win(b_win)
 );
 
 snake_top s1(
@@ -216,5 +230,25 @@ snake_top s1(
 .b_s(b_s),
 .hit_wall(hit_wall),
 .hit_body(hit_body)
+);
+
+vga_win v3(
+.clk(clk_n),
+.clr(clr),
+.hsync_i(hsync_win),
+.vsync_i(vsync_win),
+.r(r_win),
+.g(g_win),
+.b(b_win)
+);
+
+vga_lose v4(
+.clk(clk_n),
+.clr(clr),
+.hsync_i(hsync_lose),
+.vsync_i(vsync_lose),
+.r(r_lose),
+.g(g_lose),
+.b(b_lose)
 );
 endmodule
