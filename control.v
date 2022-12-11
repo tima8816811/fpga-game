@@ -62,8 +62,11 @@ parameter       S_keep   = 5'd0,
                 S_restart = 5'd15,
                 S_start_s = 5'd16,
                 S_play =5'd17,
-                S_die = 5'd18;
+                S_die = 5'd18,
                 
+                S_lose2 = 5'd21,
+                S_win_i = 5'd19,
+                S_lose_i = 5'd20;
 
 parameter time_val = 26'd50000001;//50000001;
 reg [27:0] time_cnt,counter;
@@ -151,7 +154,7 @@ always @(posedge clk or posedge clr)
             begin
                 vga_control=3'd2;
                 if ((judge_able)==1)
-                next_state = S_start; 
+                next_state = S_win; 
                 else if((L)||(U)||(R)||(D))
                     begin
                         next_state = S_move;
@@ -179,13 +182,15 @@ always @(posedge clk or posedge clr)
                 if ((judge_able)==0)
                 next_state = S_keep;
                 else if ((judge_able)==1)
-                next_state = S_start; 
+                next_state = S_lose2; 
              end
-            S_win:
+        S_win:
             begin
-                win=1;
-            end
-            
+                vga_control=3'd5;
+                if (counter == time_val)
+                next_state = S_win_i;
+                else  next_state = S_win;
+            end    
             
         S_random:
         begin
@@ -255,7 +260,7 @@ always @(posedge clk or posedge clr)
             isdie = 1;
             vga_control=3'd3;
             if (die == 1)
-                next_state = S_start;
+                next_state = S_lose2;
             else
                 next_state = S_random;
         end        
@@ -276,8 +281,31 @@ always @(posedge clk or posedge clr)
 		S_die:begin
 		            vga_control=3'd4;  
 		            s_die=1'd1;     
-				    next_state  <= S_start;
-						end		
+				    next_state  <= S_lose2;
+						end	
+		S_win_i:begin
+		          vga_control=3'd5;   
+		          if((L)||(U)||(R)||(D))
+                    begin
+                        next_state = S_start;
+                    end               
+                else next_state = S_win_i;             
+		  end					
+		S_lose2:begin
+		          vga_control=3'd6;
+		          if (counter == time_val)
+		              next_state = S_lose_i;
+		          else     
+		              next_state = S_lose2;
+		  end
+		S_lose_i:begin
+		          vga_control=3'd6; 
+		          if((L)||(U)||(R)||(D))
+                    begin
+                        next_state = S_start;
+                    end               
+                else next_state = S_lose_i;
+		  end  
         endcase          
     end
 
