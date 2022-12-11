@@ -22,8 +22,8 @@
 
 module mux_vga(
 input clk,clr,
-input [3:0] r_m,g_m,b_m,r_i,g_i,b_i,r_t,g_t,b_t,r_s,g_s,b_s,
-input hsync_i,vsync_i,hsync_m,vsync_m,hsync_t,vsync_t,hsync_s,vsync_s,
+input [3:0] r_m,g_m,b_m,r_i,g_i,b_i,r_t,g_t,b_t,r_s,g_s,b_s,r_win,g_win,b_win,r_lose,g_lose,b_lose,
+input hsync_i,vsync_i,hsync_m,vsync_m,hsync_t,vsync_t,hsync_s,vsync_s,hsync_win,vsync_win,hsync_lose,vsync_lose,
 input [3:0] vga_control,
 input blink,
 output reg hsync,vsync,
@@ -75,7 +75,21 @@ always@ (*)
                 vsync <= vsync_s;
                 r <= r_s;
                 g <= g_s;
-                b <= b_s; end     
+                b <= b_s; end  
+            5:
+            begin
+                hsync <= hsync_win;
+                vsync <= vsync_win;
+                r <= r_win;
+                g <= g_win;
+                b <= b_win; end
+            6:
+            begin
+                hsync <= hsync_lose;
+                vsync <= vsync_lose;
+                r <= r_lose;
+                g <= g_lose;
+                b <= b_lose; end               
            endcase
         end
 endmodule
