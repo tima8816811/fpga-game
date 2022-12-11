@@ -32,14 +32,14 @@ set_property PACKAGE_PIN W5 [get_ports clk]
 set_property IOSTANDARD LVCMOS33 [get_ports clk]
 create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports clk]
 
-set_property IOSTANDARD LVCMOS33 [get_ports up]
-set_property PACKAGE_PIN T18 [get_ports up]
-set_property IOSTANDARD LVCMOS33 [get_ports left]
-set_property PACKAGE_PIN W19 [get_ports left]
-set_property IOSTANDARD LVCMOS33 [get_ports right]
-set_property PACKAGE_PIN T17 [get_ports right]
-set_property IOSTANDARD LVCMOS33 [get_ports down]
-set_property PACKAGE_PIN U17 [get_ports down]
+set_property PACKAGE_PIN C17 [get_ports PS2C]
+	set_property IOSTANDARD LVCMOS33 [get_ports PS2C]
+	set_property PULLUP true [get_ports PS2C]
+set_property PACKAGE_PIN B17 [get_ports PS2D]
+	set_property IOSTANDARD LVCMOS33 [get_ports PS2D]
+	set_property PULLUP true [get_ports PS2D]
+
+
 set_property IOSTANDARD LVCMOS33 [get_ports clr]
 set_property PACKAGE_PIN U18 [get_ports clr]
 
